@@ -9,42 +9,42 @@ Following are the customizable parameters which are implementing in the code :
 
 - hidden_size = hidden layer size (INT)
 
--Layers = layer size for encoder and decoder (INT)
+- Layers = layer size for encoder and decoder (INT)
 
--module_type = Type of model to be used (LSTM, GRU , RNN) (STRING)(PROVIDE INPUT IN CAPS ONLY)
+- module_type = Type of model to be used (LSTM, GRU , RNN) (STRING)(PROVIDE INPUT IN CAPS ONLY)
 
--dropout = dropout probability (ranging from 0 to 1)(FLOAT)
+- dropout = dropout probability (ranging from 0 to 1)(FLOAT)
 
--learning_rate = learning rate for gradiend descent algorithms (FLOAT)
+- learning_rate = learning rate for gradiend descent algorithms (FLOAT)
 
--batch_size = batchsize for the model (INT)
+- batch_size = batchsize for the model (INT)
 
--num_epochs = Number of iterations for training (INT)
+- num_epochs = Number of iterations for training (INT)
 
--optimizer = Possible optimizers for training (STRING)('adam', 'sgd', 'rmsprop', 'nadam', 'adagrad')
+- optimizer = Possible optimizers for training (STRING)('adam', 'sgd', 'rmsprop', 'nadam', 'adagrad')
 
--beam_width = beam with for the beam search (INT)
+- beam_width = beam with for the beam search (INT)
 
--bidirectional_type = parameter to enable bidirectional in model (True/False)(BOOL)
+- bidirectional_type = parameter to enable bidirectional in model (True/False)(BOOL)
 
--length_penalty = length penalty (ranging from 0 to 1)(FLOAT)
+- length_penalty = length penalty (ranging from 0 to 1)(FLOAT)
 
--teacher_forcing = teacher forcing ratio (ranging from 0 to 1)(FLOAT)
+- teacher_forcing = teacher forcing ratio (ranging from 0 to 1)(FLOAT)
 
 
 # Running the files :
 
 The Repo contains 4 files and one folder namely :
 
--predictions_attention (folder) : includes the actual and predicted words as csv file required for the assignement Question 5.b
+- predictions_attention (folder) : includes the actual and predicted words as csv file required for the assignement Question 5.b
 
--DLA_A3_VANILLA_WANDBattention.ipynb : Wandb implemented file for attention based model. can open and add your Wandb key in the first cell and hypertune parameters on you wandb account(ipynb file).
+- DLA_A3_VANILLA_WANDBattention.ipynb : Wandb implemented file for attention based model. can open and add your Wandb key in the first cell and hypertune parameters on you wandb account(ipynb file).
 
--DLA_A3_VANILLA_WANDB.ipynb : Wandb implemented file for Vanilla model. can open and add your Wandb key in the first cell and hypertune parameters on you wandb account (ipynb file).
+- DLA_A3_VANILLA_WANDB.ipynb : Wandb implemented file for Vanilla model. can open and add your Wandb key in the first cell and hypertune parameters on you wandb account (ipynb file).
 
--DLA3_vanilla_train.py : .py file that work with command line arguments(for vanilla model).
+- DLA3_vanilla_train.py : .py file that work with command line arguments(for vanilla model).
 
--DLA3_attention_train.py : .py file that work with command line arguments(for attention based model).
+- DLA3_attention_train.py : .py file that work with command line arguments(for attention based model).
 
 By default the py files are initialized with best parameters as default parameters.
 
