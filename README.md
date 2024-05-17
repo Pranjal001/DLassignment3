@@ -75,8 +75,8 @@ The following is the command line syntax to run the .py files:
 
 ('-bi', '--bidirectional_type', help='Use bidirectional_type encoder')
 
-command line code :
+command line code syntax:
 
-!pyhton [pyhton file location] -dp [data path(add data path up to languages list folder only)] -ln [add language you wish to train on(hin/mar/mal/asm etc.)] [..any parameter from the above list]
+!pyhton [pyhton file location] -dp [data path(add data path up to languages list folder only)(eg-> /kaggle/input/aksharantar-sampled)] -ln [add language you wish to train on(hin/mar/mal/asm etc.)] [..any parameter from the above list]
 
-
+you can also use -help to view list of possible arguments/parameters.
