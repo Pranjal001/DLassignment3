@@ -51,35 +51,35 @@ By default the py files are initialized with best parameters as default paramete
 The following is the command line syntax to run the .py files:
 
 
-('-dp', '--data_path', type=str, help='Path to the data folder')
+- ('-dp', '--data_path', type=str, help='Path to the data folder')
 
-('-ln', '--lng', type=str, help=' provide which language you want it to be trained on')
+- ('-ln', '--lng', type=str, help=' provide which language you want it to be trained on')
 
-('-es', '--embedding_size', type=int, help='Embedding size')
+- ('-es', '--embedding_size', type=int, help='Embedding size')
 
-('-hs', '--hidden_size', type=int, help='Hidden size')
+- ('-hs', '--hidden_size', type=int, help='Hidden size')
 
-('-l', '--layers', type=int,  help='layers size')
+- ('-l', '--layers', type=int,  help='layers size')
 
-('-mt', '--module_type', type=str,  choices=['RNN', 'LSTM', 'GRU'], help='Module type (RNN, LSTM, GRU)')
+- ('-mt', '--module_type', type=str,  choices=['RNN', 'LSTM', 'GRU'], help='Module type (RNN, LSTM, GRU)')
 
-('-dt', '--dropout', type=float,  help='Dropout rate')
+- ('-dt', '--dropout', type=float,  help='Dropout rate')
 
-('-lr', '--learning_rate', type=float,  help='Learning rate')
+- ('-lr', '--learning_rate', type=float,  help='Learning rate')
 
-('-bs', '--batch_size', type=int, help='Batch size')
+- ('-bs', '--batch_size', type=int, help='Batch size')
 
-('-e', '--num_epochs', type=int,  help='Number of epochs')
+- ('-e', '--num_epochs', type=int,  help='Number of epochs')
 
-('-opt', '--optimizer', type=str,  choices=['adam', 'sgd', 'rmsprop', 'nadam', 'adagrad'], help='Optimizer (adam, sgd, rmsprop, nadam, adagrad)')
+- ('-opt', '--optimizer', type=str,  choices=['adam', 'sgd', 'rmsprop', 'nadam', 'adagrad'], help='Optimizer (adam, sgd, rmsprop, nadam, adagrad)')
 
-('-bw', '--beam_search_width', type=int,  help='Beam search width')
+- ('-bw', '--beam_search_width', type=int,  help='Beam search width')
 
-('-lp', '--length_penalty', type=float,  help='Length penalty')
+- ('-lp', '--length_penalty', type=float,  help='Length penalty')
 
-('-tf', '--teacher_forcing', type=float, help='Teacher forcing ratio')
+- ('-tf', '--teacher_forcing', type=float, help='Teacher forcing ratio')
 
-('-bi', '--bidirectional_type', help='Use bidirectional_type encoder')
+- ('-bi', '--bidirectional_type', help='Use bidirectional_type encoder')
 
 command line code syntax:
 
