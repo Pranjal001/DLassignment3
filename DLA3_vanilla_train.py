@@ -19,6 +19,7 @@ import random
 import heapq
 import torch.optim as optim
 import torch.nn as nn
+import wandb
 import argparse
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -580,6 +581,14 @@ def train(model, num_epochs, criterion, optimizer, train_batch_x, train_batch_y,
         print(f"Beam Val Word accuracy: " ,beam_val)
         print(f"Correct Prediction : {beam_val_pred}/{df_val.shape[0]}")
         print("========================================================================")
+        if wandb_log == 1:
+            wandb.log({
+                "train_accuracy_char": acc,
+                "train_loss": avg_loss,
+                "val_accuracy_char": val_acc,
+                "val_loss": val_avg_loss,
+                "beam_val_accuracy_word" : beam_val,
+            })
 
 
     return model, beam_val
@@ -613,9 +622,24 @@ parser.add_argument('-bw', '--beam_search_width', type=int, default=3, help='Bea
 parser.add_argument('-lp', '--length_penalty', type=float, default=0.6, help='Length penalty')
 parser.add_argument('-tf', '--teacher_forcing', type=float, default=0.9, help='Teacher forcing ratio')
 parser.add_argument('-bi', '--bidirectional_type', default=True, help='Use bidirectional_type encoder')
+parser.add_argument('-wl', '--wandb_log', type=int, default = 0, help='Whether to log to WandB (1 for yes, 0 for no)', choices=[0, 1])
+parser.add_argument('-wp', '--wandb_project',help='Project name used to track experiments in Weights & Biases dashboard', type=str, default='DL_assignment_3')
+parser.add_argument('-we', '--wandb_entity', help='Wandb Entity used to track experiments in the Weights & Biases dashboard.', type=str, default='cs23m049')
+
 
 
 config = parser.parse_args()
+if config.wandb_log == 1:
+    run_config = vars(config).copy()
+    run_config.pop('data_path', None)
+    run_config.pop('lang', None)
+    run_config.pop('wandb_log', None)
+    run_config.pop('wandb_project', None)
+    run_config.pop('wandb_entity', None)
+    run_config.pop('heatmap_plot', None)
+    wandb.init(config=run_config, project=config.wandb_project, name=config.wandb_entity)
+    wandb.run.name = ':cell:' + config.module_type + ':bs:' + str(config.batch_size) + ':ep:' + str(config.num_epochs) + ':op:' + str(config.optimizer) + ':drop:' + str(config.dropout) + ':bsw:' + str(config.beam_search_width) +':emb:' + str(config.embedding_size) + ':hs:' + str(config.hidden_size) + ':elayer:' + str(config.layers) + ':dlayer:' + str(config.layers)
+
 #assigning data from the language class and futther trianing and evaluating the model 
 
 pathtrain = config.data_path+"/"+config.lng+"/"+config.lng+"_train.csv"
@@ -681,7 +705,13 @@ optimizer = assign_opt(optimizer)
 
 
 # TRAINING
-model, acc = train(model, num_epochs, criterion, optimizer, train_batch_x, train_batch_y, val_batch_x, val_batch_y, df_val, input_char_to_int, output_char_to_int, output_int_to_char, beam_width, length_penalty, module_type, max_length,1)
+model, acc = train(model, num_epochs, criterion, optimizer, train_batch_x, train_batch_y, val_batch_x, val_batch_y, df_val, input_char_to_int, output_char_to_int, output_int_to_char, beam_width, length_penalty, module_type, max_length,config.wandb_log)
+
+if config.wandb_log == 1:
+    wandb.log({
+            "accuracy": acc,
+        })
+
 test_acc = 0
 correct_pred = 0
 words_test = []
