@@ -38,10 +38,10 @@ The Repo contains 4 files and one folder namely :
 
 - predictions_attention (folder) : includes the actual and predicted words as csv file required for the assignement Question 5.b
 
-- DLA_A3_VANILLA_WANDBattention.ipynb : Wandb implemented file for attention based model. can open and add your Wandb key in the first cell and hypertune parameters on you wandb account(ipynb file).
+- DLA_A3_VANILLA_WANDBattention.ipynb : This file is to locally run the model with manually entering the parameters within the code, This is an ipynb file.(attention based)
 
-- DLA_A3_VANILLA_WANDB.ipynb : Wandb implemented file for Vanilla model. can open and add your Wandb key in the first cell and hypertune parameters on you wandb account (ipynb file).
-
+- DLA_A3_VANILLA_WANDB.ipynb : This file is to locally run the model with manually entering the parameters within the code, This is an ipynb file.(vanilla)
+- 
 - DLA3_vanilla_train.py : .py file that work with command line arguments(for vanilla model).
 
 - DLA3_attention_train.py : .py file that work with command line arguments(for attention based model).
@@ -95,7 +95,7 @@ remove [content] from the above and add appropriate input there.
 
 You can also use -help to view list of possible arguments/parameters.
 
-NOTE : To use wandb please make sure to install wandb and complete wandb login to avoid any wandb related errors
+NOTE_1 : To use wandb please make sure to install wandb and complete wandb login to avoid any wandb related errors
 
 ```
 !pip install wandb
@@ -107,3 +107,4 @@ The commands :
 - -wp : to enter wandb project name
 - -we " to enter wandb entity name
 should be used for managing and logging data on wandb
+NOTE_2 : The command line argument take input for data path of the folder(-dp) and it doesnt take a zip file location as input
