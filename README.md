@@ -81,10 +81,29 @@ The following is the command line syntax to run the .py files:
 
 - ('-bi', '--bidirectional_type', help='Use bidirectional_type encoder')
 
+- '-wl', '--wandb_log', type=int, default = 0, help='Whether to log to WandB (1 for yes, 0 for no)', choices=[0, 1])
+
+- '-wp', '--wandb_project',help='Project name used to track experiments in Weights & Biases dashboard', type=str, default='DL_assignment_3')
+
+- '-we', '--wandb_entity', help='Wandb Entity used to track experiments in the Weights & Biases dashboard.', type=str, default='cs23m049')
+
 command line code syntax:
 ```
 !pyhton [pyhton file location] -dp [data path(add data path up to languages list folder only)(eg-> /kaggle/input/aksharantar-sampled)] -ln [add language you wish to train on(hin/mar/mal/asm etc.)] [..any parameter from the above list with appropriate values]
 ```
 remove [content] from the above and add appropriate input there.
 
-you can also use -help to view list of possible arguments/parameters.
+You can also use -help to view list of possible arguments/parameters.
+
+NOTE : To use wandb please make sure to install wandb and complete wandb login to avoid any wandb related errors
+
+```
+!pip install wandb
+!wandb login 'ENTER KEY'
+```
+
+The commands :
+- -wl : to enable wandb use
+- -wp : to enter wandb project name
+- -we " to enter wandb entity name
+should be used for managing and logging data on wandb
