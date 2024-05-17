@@ -107,4 +107,5 @@ The commands :
 - -wp : to enter wandb project name
 - -we " to enter wandb entity name
 should be used for managing and logging data on wandb
+
 NOTE_2 : The command line argument take input for data path of the folder(-dp) and it doesnt take a zip file location as input
